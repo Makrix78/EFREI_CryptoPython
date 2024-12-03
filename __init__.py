@@ -1,34 +1,31 @@
 from cryptography.fernet import Fernet
-from flask import Flask, jsonify, request
+from flask import Flask
 
 app = Flask(__name__)
 
-# Génération d'une clé unique pour l'application
+# Génération de la clé de chiffrement et création de l'objet Fernet
 key = Fernet.generate_key()
 f = Fernet(key)
 
 @app.route('/')
 def hello_world():
-    return "Bienvenue sur l'API de cryptage/décryptage !"  # Message d'accueil
+    return "Bienvenue sur l'application de chiffrement et déchiffrement !"
 
-# Route pour crypter une valeur
 @app.route('/encrypt/<string:valeur>')
 def encryptage(valeur):
-    token = f.encrypt(valeur.encode())  # Cryptage de la valeur
-    return f"Valeur encryptée : {token.decode()}"  # Retour du texte crypté
+    valeur_bytes = valeur.encode()  # Conversion str -> bytes
+    token = f.encrypt(valeur_bytes)  # Encrypt la valeur
+    return f"Valeur encryptée : {token.decode()}"  # Retourne le token en str
 
-# Route pour décrypter une valeur
-@app.route('/decrypt/', methods=['POST'])
-def decryptage():
-    data = request.json
-    if 'encrypted_message' not in data:
-        return jsonify({'error': 'Encrypted message is required'}), 400
-
+# Exercice 1 : Route pour décryptage
+@app.route('/decrypt/<string:token>')
+def decryptage(token):
     try:
-        decrypted_message = f.decrypt(data['encrypted_message'].encode()).decode()  # Décryptage
-        return jsonify({'decrypted': decrypted_message})  # Retour du texte décrypté
+        token_bytes = token.encode()  # Conversion str -> bytes
+        valeur_decryptee = f.decrypt(token_bytes)  # Décryptage du token
+        return f"Valeur décryptée : {valeur_decryptee.decode()}"  # Retourne la valeur décryptée en str
     except Exception as e:
-        return jsonify({'error': 'Invalid encrypted message', 'details': str(e)}), 400
+        return f"Erreur lors du décryptage : {e}"
 
 if __name__ == "__main__":
     app.run(debug=True)
