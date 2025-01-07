@@ -68,40 +68,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tableau Excel</title>
+    <title>Tableau HTML</title>
     <style>
         table {
-            width: 100%;
             border-collapse: collapse;
+            width: 100%;
         }
-        td {
+        th, td {
             border: 1px solid black;
-            height: 50px;
+            padding: 8px;
             text-align: center;
-            vertical-align: middle;
         }
     </style>
 </head>
 <body>
     <table>
         <tr>
-            <td rowspan="2">Colonne 1</td>
-            <td>Colonne 2 - Ligne 1</td>
-            <td rowspan="2">Colonne 3</td>
-            <td>Colonne 4 - Ligne 1</td>
+            <td rowspan="2">Colonne 1 (2 lignes)</td>
+            <td rowspan="4">Colonne 2 (4 lignes)</td>
+            <td rowspan="2">Colonne 3 (2 lignes)</td>
+            <td>Colonne 4, Ligne 1</td>
         </tr>
         <tr>
-            <td>Colonne 2 - Ligne 2</td>
-            <td>Colonne 4 - Ligne 2</td>
+            <td>Colonne 4, Ligne 2</td>
         </tr>
         <tr>
-            <td>Colonne 2 - Ligne 3</td>
-            <td>Colonne 4 - Ligne 3 - Partie 1</td>
-            <td>Colonne 4 - Ligne 3 - Partie 2</td>
+            <td rowspan="2">Colonne 4, Ligne 3.1</td>
+            <td>Colonne 4, Ligne 3.2</td>
         </tr>
         <tr>
-            <td>Colonne 2 - Ligne 4</td>
-            <td>Colonne 4 - Ligne 4</td>
+            <td>Colonne 4, Ligne 4</td>
         </tr>
     </table>
 </body>
