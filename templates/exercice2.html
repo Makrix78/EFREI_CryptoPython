@@ -68,63 +68,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tableau HTML</title>
+    <title>Tableau Excel</title>
     <style>
         table {
             width: 100%;
             border-collapse: collapse;
         }
-        th, td {
+        td {
             border: 1px solid black;
-            padding: 8px;
+            width: 33%;
+            height: 50px;
             text-align: center;
+            vertical-align: middle;
         }
-        th {
-            background-color: #f2f2f2;
+        .merged-cell {
+            width: 66%;
         }
     </style>
 </head>
 <body>
     <table>
         <tr>
-            <th colspan="4">un autre tableau</th>
-        </tr>
-        <tr>
-            <td rowspan="2"></td>
-            <td rowspan="4"></td>
-            <td rowspan="2"></td>
-            <td rowspan="4">
-                <table style="width: 100%; border-collapse: collapse;">
-                    <tr>
-                        <td rowspan="2"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <!-- Ces cellules sont vides car elles sont couvertes par les cellules rowspan des colonnes précédentes -->
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
         <tr>
             <td></td>
-            <td rowspan="2"></td>
-            <!-- Ces cellules sont vides car elles sont couvertes par les cellules rowspan des colonnes précédentes -->
+            <td></td>
+            <td></td>
         </tr>
         <tr>
             <td></td>
-            <!-- Ces cellules sont vides car elles sont couvertes par les cellules rowspan des colonnes précédentes -->
+            <td></td>
+            <td></td>
         </tr>
-    </table>
+        <tr>
+            <td></td>
+            <td class="merged-cell" colspan="2"></td>
+        </tr>
+    </tr>
 </body>
 </html>
