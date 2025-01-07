@@ -11,6 +11,10 @@ f = Fernet(key)
 def hello_world():
     return "Bienvenue sur l'application de chiffrement et déchiffrement !"
 
+@app.route('/exercice1')
+def hello_world():
+     return render_template('exercice1')
+
 @app.route('/encrypt/<string:valeur>')
 def encryptage(valeur):
     valeur_bytes = valeur.encode()  # Conversion str -> bytes
