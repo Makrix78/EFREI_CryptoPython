@@ -62,3 +62,56 @@
     </ol>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau Spécifique</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 5px;
+            text-align: center;
+        }
+        .bold-title {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="3"><strong>un autre tableau</strong></td>
+        </tr>
+        <tr>
+            <td rowspan="2"></td>
+            <td>
+                <table>
+                    <tr><td></td></tr>
+                    <tr><td></td></tr>
+                </table>
+            </td>
+            <td rowspan="2"></td>
+        </tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+
