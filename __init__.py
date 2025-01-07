@@ -12,7 +12,7 @@ def hello_world():
     return "Bienvenue sur l'application de chiffrement et déchiffrement !"
 
 @app.route('/exercice1')
-def hello_world():
+def exo1():
      return render_template('exercice1.html')
 
 @app.route('/encrypt/<string:valeur>')
