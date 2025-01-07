@@ -87,25 +87,44 @@
 <body>
     <table>
         <tr>
-            <th colspan="2">un autre tableau</th>
-            <th colspan="2" rowspan="2"></th>
-            <th colspan="2"></th>
+            <th colspan="4">un autre tableau</th>
         </tr>
         <tr>
             <td rowspan="2"></td>
+            <td rowspan="4"></td>
             <td rowspan="2"></td>
-            <td colspan="2" rowspan="2"></td>
+            <td rowspan="4">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                        <td rowspan="2"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <!-- Ces cellules sont vides car elles sont couvertes par les cellules rowspan des colonnes précédentes -->
         </tr>
         <tr>
             <td></td>
+            <td rowspan="2"></td>
+            <!-- Ces cellules sont vides car elles sont couvertes par les cellules rowspan des colonnes précédentes -->
+        </tr>
+        <tr>
             <td></td>
+            <!-- Ces cellules sont vides car elles sont couvertes par les cellules rowspan des colonnes précédentes -->
         </tr>
     </table>
 </body>
 </html>
-
-        </tr>
-    </table>
-</body>
-</html>
-
