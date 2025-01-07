@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .form-container {
+            width: 300px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group input[type="checkbox"] {
+            width: auto;
+        }
+        .form-group input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Mozilla Firefox</h2>
+        <form>
+            <div class="form-group">
+                <label for="pseudo">Votre pseudo :</label>
+                <input type="text" id="pseudo" name="pseudo">
+            </div>
+            <div class="form-group">
+                <label for="mot_de_passe">Votre mot de passe :</label>
+                <input type="password" id="mot_de_passe" name="mot_de_passe">
+            </div>
+            <div class="form-group">
+                <label for="confirm_mot_de_passe">Ressaisir votre mot de passe :</label>
+                <input type="password" id="confirm_mot_de_passe" name="confirm_mot_de_passe">
+            </div>
+            <div class="form-group">
+                <label>OS préféré :</label>
+                <input type="radio" id="windows_xp" name="os" value="Windows XP">
+                <label for="windows_xp">Windows XP</label><br>
+                <input type="radio" id="windows_vista" name="os" value="Windows Vista">
+                <label for="windows_vista">Windows Vista</label><br>
+                <input type="radio" id="macos_x" name="os" value="MacOS X">
+                <label for="macos_x">MacOS X</label><br>
+                <input type="radio" id="linux" name="os" value="Linux">
+                <label for="linux">Linux</label><br>
+                <input type="radio" id="autre" name="os" value="Autre">
+                <label for="autre">Autre</label>
+            </div>
+            <div class="form-group">
+                <label>Vous possédez :</label><br>
+                <input type="checkbox" id="ordinateur_bureau" name="possession" value="Ordinateur de bureau">
+                <label for="ordinateur_bureau">Un ordinateur de bureau</label><br>
+                <input type="checkbox" id="portable" name="possession" value="Portable">
+                <label for="portable">Un portable</label><br>
+                <input type="checkbox" id="netbook" name="possession" value="Netbook">
+                <label for="netbook">Un netbook</label><br>
+                <input type="checkbox" id="tablette" name="possession" value="Tablette">
+                <label for="tablette">Une tablette (Pad)</label>
+            </div>
+            <div class="form-group">
+                <label for="profession">Votre profession :</label>
+                <select id="profession" name="profession">
+                    <option value="chomeur">Chômeur</option>
+                    <option value="etudiant">Étudiant</option>
+                    <option value="fonctionnaire">Fonctionnaire</option>
+                    <option value="prive">Privé</option>
+                    <option value="retraite">Retraité</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="S'inscrire !">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
