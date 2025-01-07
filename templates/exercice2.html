@@ -76,37 +76,34 @@
         }
         td {
             border: 1px solid black;
-            width: 33%;
             height: 50px;
             text-align: center;
             vertical-align: middle;
-        }
-        .merged-cell {
-            width: 66%;
         }
     </style>
 </head>
 <body>
     <table>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td rowspan="2">Colonne 1</td>
+            <td>Colonne 2 - Ligne 1</td>
+            <td rowspan="2">Colonne 3</td>
+            <td>Colonne 4 - Ligne 1</td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Colonne 2 - Ligne 2</td>
+            <td>Colonne 4 - Ligne 2</td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Colonne 2 - Ligne 3</td>
+            <td>Colonne 4 - Ligne 3 - Partie 1</td>
+            <td>Colonne 4 - Ligne 3 - Partie 2</td>
         </tr>
         <tr>
-            <td></td>
-            <td class="merged-cell" colspan="2"></td>
+            <td>Colonne 2 - Ligne 4</td>
+            <td>Colonne 4 - Ligne 4</td>
         </tr>
-    </tr>
+    </table>
 </body>
 </html>
+
