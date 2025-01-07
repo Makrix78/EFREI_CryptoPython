@@ -19,6 +19,10 @@ def exo1():
 def exo2():
      return render_template('exercice2.html')
 
+@app.route('/exercice3')
+def exo3():
+     return render_template('exercice3.html')
+
 @app.route('/encrypt/<string:valeur>')
 def encryptage(valeur):
     valeur_bytes = valeur.encode()  # Conversion str -> bytes
