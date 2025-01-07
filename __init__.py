@@ -16,7 +16,7 @@ def exo1():
      return render_template('exercice1.html')
 
 @app.route('/exercice2')
-def exo1():
+def exo2():
      return render_template('exercice2.html')
 
 @app.route('/encrypt/<string:valeur>')
