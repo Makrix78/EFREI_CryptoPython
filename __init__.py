@@ -13,7 +13,7 @@ def hello_world():
 
 @app.route('/exercice1')
 def hello_world():
-     return render_template('exercice1')
+     return render_template('exercice1.html')
 
 @app.route('/encrypt/<string:valeur>')
 def encryptage(valeur):
