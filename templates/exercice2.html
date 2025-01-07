@@ -7,38 +7,45 @@
     <style>
         table {
             border-collapse: collapse;
-            width: 100%;
+            margin: 10px 0;
         }
         table, th, td {
             border: 1px solid black;
         }
         th, td {
+            padding: 5px;
             text-align: center;
-            padding: 8px;
         }
-        .italic {
+        .section-title {
             font-style: italic;
         }
-        .red {
+        .list-title {
             color: red;
+            font-style: italic;
+        }
+        .bold-title {
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-
-    <h2>Voici la première partie :</h2>
+    <h2><strong>Exercice 2:</strong> Composez une page ressemblant à l'image suivante</h2>
+    
+    <p>Voici la première partie :</p>
     <table>
         <tr>
             <td>un tableau</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
             <td>à 6</td>
-            <td>cases</td>
+            <td colspan="2">cases</td>
         </tr>
     </table>
-
-    <hr>
-
-    <h2 class="italic">Voici la deuxième partie</h2>
-    <p class="red">Une liste</p>
+    
+    <p class="section-title">Voici la deuxième partie</p>
+    <p class="list-title">Une liste</p>
     <ol>
         <li>premier point
             <ul>
@@ -54,23 +61,19 @@
             </ul>
         </li>
     </ol>
-
-    <hr>
-
-    <h2>Voici la troisième partie :</h2>
+    
+    <p class="bold-title">Voici la troisième partie :</p>
     <table>
         <tr>
             <td colspan="2">un autre tableau</td>
-            <td></td>
         </tr>
         <tr>
             <td></td>
             <td></td>
-            <td></td>
         </tr>
         <tr>
             <td></td>
-            <td colspan="2">
+            <td>
                 <table>
                     <tr>
                         <td></td>
@@ -80,6 +83,5 @@
             </td>
         </tr>
     </table>
-
 </body>
 </html>
