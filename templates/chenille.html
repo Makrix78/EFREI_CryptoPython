@@ -1,201 +1,49 @@
+
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Chenille</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: white;
-        }
-
-        .chenille {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .segment {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            position: relative;
-            margin-left: -15px;
-            border: 3px solid black;
-        }
-
-        .head {
-            background-color: cyan;
-            z-index: 2;
-            margin-left: 0;
-        }
-
-        .eye {
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            background-color: white;
-            border-radius: 50%;
-            top: 30px;
-        }
-
-        .eye.left {
-            left: 25px;
-        }
-
-        .eye.right {
-            right: 25px;
-        }
-
-        .pupil {
-            position: absolute;
-            width: 7px;
-            height: 7px;
-            background-color: black;
-            border-radius: 50%;
-            top: 4px;
-            left: 4px;
-        }
-
-        .mouth {
-            position: absolute;
-            width: 40px;
-            height: 15px;
-            background-color: pink;
-            border-radius: 10px;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .antenna {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: black;
-            border-radius: 50%;
-            top: -30px;
-        }
-
-        .antenna.left {
-            left: 20px;
-        }
-
-        .antenna.right {
-            right: 20px;
-        }
-
-        .antenna-line {
-            position: absolute;
-            width: 2px;
-            height: 30px;
-            background-color: black;
-            top: -30px;
-        }
-
-        .antenna-line.left {
-            left: 24px;
-        }
-
-        .antenna-line.right {
-            right: 24px;
-        }
-
-        .foot {
-            position: absolute;
-            bottom: -15px;
-            width: 20px;
-            height: 20px;
-            background-color: white;
-            border-radius: 50%;
-            border: 2px solid black;
-        }
-
-        .foot.left {
-            left: 15px;
-        }
-
-        .foot.right {
-            right: 15px;
-        }
-
-        .segment:nth-child(2) {
-            background-color: blue;
-        }
-
-        .segment:nth-child(3) {
-            background-color: orange;
-        }
-
-        .segment:nth-child(4) {
-            background-color: magenta;
-        }
-
-        .segment:nth-child(5) {
-            background-color: lime;
-        }
-
-        .segment:nth-child(6) {
-            background-color: lightblue;
-        }
-
-        .segment:nth-child(7) {
-            background-color: peachpuff;
-        }
-
-        .segment:nth-child(8) {
-            background-color: lightgray;
-        }
-    </style>
+    <title>Chenille SVG</title>
 </head>
 <body>
-    <div class="chenille">
-        <div class="segment head">
-            <div class="eye left">
-                <div class="pupil"></div>
-            </div>
-            <div class="eye right">
-                <div class="pupil"></div>
-            </div>
-            <div class="mouth"></div>
-            <div class="antenna-line left"></div>
-            <div class="antenna left"></div>
-            <div class="antenna-line right"></div>
-            <div class="antenna right"></div>
-        </div>
-        <div class="segment">
-            <div class="foot left"></div>
-            <div class="foot right"></div>
-        </div>
-        <div class="segment">
-            <div class="foot left"></div>
-            <div class="foot right"></div>
-        </div>
-        <div class="segment">
-            <div class="foot left"></div>
-            <div class="foot right"></div>
-        </div>
-        <div class="segment">
-            <div class="foot left"></div>
-            <div class="foot right"></div>
-        </div>
-        <div class="segment">
-            <div class="foot left"></div>
-            <div class="foot right"></div>
-        </div>
-        <div class="segment">
-            <div class="foot left"></div>
-            <div class="foot right"></div>
-        </div>
-        <div class="segment">
-            <div class="foot left"></div>
-            <div class="foot right"></div>
-        </div>
-    </div>
+    <svg width="800" height="400" xmlns="http://www.w3.org/2000/svg" style="background-color: #f9f9f9;">
+        <!-- Tête -->
+        <circle cx="100" cy="150" r="50" fill="#00d9c8" stroke="black" stroke-width="3" />
+        <!-- Antennes -->
+        <circle cx="80" cy="90" r="10" fill="white" stroke="black" stroke-width="2" />
+        <circle cx="120" cy="90" r="10" fill="white" stroke="black" stroke-width="2" />
+        <line x1="80" y1="90" x2="100" y2="120" stroke="black" stroke-width="2" />
+        <line x1="120" y1="90" x2="100" y2="120" stroke="black" stroke-width="2" />
+        <!-- Yeux -->
+        <circle cx="85" cy="135" r="10" fill="white" stroke="black" stroke-width="2" />
+        <circle cx="115" cy="135" r="10" fill="white" stroke="black" stroke-width="2" />
+        <circle cx="85" cy="135" r="4" fill="black" />
+        <circle cx="115" cy="135" r="4" fill="black" />
+        <!-- Bouche -->
+        <path d="M85,165 Q100,180 115,165" fill="none" stroke="black" stroke-width="2" />
+        <!-- Corps -->
+        <circle cx="200" cy="150" r="50" fill="#6ebaff" stroke="black" stroke-width="3" />
+        <circle cx="300" cy="150" r="50" fill="#ffa500" stroke="black" stroke-width="3" />
+        <circle cx="400" cy="150" r="50" fill="#ff00ff" stroke="black" stroke-width="3" />
+        <circle cx="500" cy="150" r="50" fill="#dfff00" stroke="black" stroke-width="3" />
+        <circle cx="600" cy="200" r="50" fill="#aaffff" stroke="black" stroke-width="3" />
+        <circle cx="700" cy="200" r="50" fill="#ffcccc" stroke="black" stroke-width="3" />
+        <!-- Pattes -->
+        <ellipse cx="180" cy="200" rx="10" ry="5" fill="white" stroke="black" />
+        <ellipse cx="220" cy="200" rx="10" ry="5" fill="white" stroke="black" />
+        <ellipse cx="280" cy="200" rx="10" ry="5" fill="white" stroke="black" />
+        <ellipse cx="320" cy="200" rx="10" ry="5" fill="white" stroke="black" />
+        <ellipse cx="380" cy="200" rx="10" ry="5" fill="white" stroke="black" />
+        <ellipse cx="420" cy="200" rx="10" ry="5" fill="white" stroke="black" />
+        <ellipse cx="480" cy="200" rx="10" ry="5" fill="white" stroke="black" />
+        <ellipse cx="520" cy="200" rx="10" ry="5" fill="white" stroke="black" />
+        <ellipse cx="580" cy="250" rx="10" ry="5" fill="white" stroke="black" />
+        <ellipse cx="620" cy="250" rx="10" ry="5" fill="white" stroke="black" />
+        <ellipse cx="680" cy="250" rx="10" ry="5" fill="white" stroke="black" />
+        <ellipse cx="720" cy="250" rx="10" ry="5" fill="white" stroke="black" />
+        <!-- Texte -->
+        <text x="250" y="350" font-family="Arial" font-size="20" fill="gray">La chenille qui vous forme</text>
+    </svg>
 </body>
 </html>
