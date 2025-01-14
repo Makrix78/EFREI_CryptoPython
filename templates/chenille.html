@@ -16,6 +16,7 @@
 
         .chenille {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
         }
 
@@ -25,7 +26,7 @@
             border-radius: 50%;
             position: relative;
             margin-left: -15px;
-            z-index: 1;
+            border: 3px solid black;
         }
 
         .head {
@@ -107,19 +108,20 @@
 
         .foot {
             position: absolute;
-            bottom: -10px;
+            bottom: -15px;
             width: 20px;
-            height: 10px;
+            height: 20px;
             background-color: white;
             border-radius: 50%;
+            border: 2px solid black;
         }
 
         .foot.left {
-            left: 20px;
+            left: 15px;
         }
 
         .foot.right {
-            right: 20px;
+            right: 15px;
         }
 
         .segment:nth-child(2) {
@@ -166,13 +168,34 @@
             <div class="antenna-line right"></div>
             <div class="antenna right"></div>
         </div>
-        <div class="segment"></div>
-        <div class="segment"></div>
-        <div class="segment"></div>
-        <div class="segment"></div>
-        <div class="segment"></div>
-        <div class="segment"></div>
-        <div class="segment"></div>
+        <div class="segment">
+            <div class="foot left"></div>
+            <div class="foot right"></div>
+        </div>
+        <div class="segment">
+            <div class="foot left"></div>
+            <div class="foot right"></div>
+        </div>
+        <div class="segment">
+            <div class="foot left"></div>
+            <div class="foot right"></div>
+        </div>
+        <div class="segment">
+            <div class="foot left"></div>
+            <div class="foot right"></div>
+        </div>
+        <div class="segment">
+            <div class="foot left"></div>
+            <div class="foot right"></div>
+        </div>
+        <div class="segment">
+            <div class="foot left"></div>
+            <div class="foot right"></div>
+        </div>
+        <div class="segment">
+            <div class="foot left"></div>
+            <div class="foot right"></div>
+        </div>
     </div>
 </body>
 </html>
