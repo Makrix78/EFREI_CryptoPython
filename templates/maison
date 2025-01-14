@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Maison dessinée</title>
+</head>
+<body>
+    <svg width="500" height="500" style="background-color:white; border:1px solid black;">
+        <!-- Maison -->
+        <rect x="150" y="200" width="200" height="200" fill="yellow" stroke="black" stroke-width="2" />
+        
+        <!-- Toit -->
+        <polygon points="150,200 250,100 350,200" fill="red" stroke="black" stroke-width="2" />
+
+        <!-- Porte -->
+        <rect x="230" y="300" width="40" height="100" fill="orange" stroke="black" stroke-width="2" />
+        
+        <!-- Fenêtre -->
+        <rect x="180" y="220" width="50" height="50" fill="white" stroke="black" stroke-width="2" />
+        <line x1="180" y1="245" x2="230" y2="245" stroke="black" stroke-width="2" />
+        <line x1="205" y1="220" x2="205" y2="270" stroke="black" stroke-width="2" />
+
+        <!-- Cheminée -->
+        <rect x="270" y="130" width="20" height="50" fill="red" stroke="black" stroke-width="2" />
+        <circle cx="280" cy="120" r="5" fill="gray" />
+        <path d="M280 120 q-10 10 -20 0" stroke="gray" stroke-width="2" fill="none" />
+
+        <!-- Soleil -->
+        <circle cx="400" cy="80" r="30" fill="yellow" />
+        <line x1="400" y1="20" x2="400" y2="50" stroke="yellow" stroke-width="4" />
+        <line x1="400" y1="110" x2="400" y2="140" stroke="yellow" stroke-width="4" />
+        <line x1="340" y1="80" x2="370" y2="80" stroke="yellow" stroke-width="4" />
+        <line x1="430" y1="80" x2="460" y2="80" stroke="yellow" stroke-width="4" />
+        <line x1="370" y1="50" x2="350" y2="30" stroke="yellow" stroke-width="4" />
+        <line x1="430" y1="50" x2="450" y2="30" stroke="yellow" stroke-width="4" />
+        <line x1="370" y1="110" x2="350" y2="130" stroke="yellow" stroke-width="4" />
+        <line x1="430" y1="110" x2="450" y2="130" stroke="yellow" stroke-width="4" />
+
+        <!-- Nuages -->
+        <ellipse cx="100" cy="80" rx="40" ry="20" fill="white" />
+        <ellipse cx="140" cy="80" rx="30" ry="15" fill="white" />
+        <ellipse cx="120" cy="70" rx="30" ry="20" fill="white" />
+
+        <!-- Herbe -->
+        <circle cx="140" cy="400" r="30" fill="green" />
+        <circle cx="160" cy="430" r="20" fill="green" />
+        <circle cx="120" cy="430" r="20" fill="green" />
+
+        <!-- Fleurs -->
+        <circle cx="100" cy="420" r="10" fill="red" />
+        <circle cx="180" cy="420" r="10" fill="blue" />
+    </svg>
+</body>
+</html>
