@@ -30,6 +30,10 @@ def exo4():
 @app.route('/coucou')
 def exo5():
      return render_template('coucou.html')
+
+@app.route('/maison')
+def exo6():
+     return render_template('maison.html')
     
 @app.route('/encrypt/<string:valeur>')
 def encryptage(valeur):
