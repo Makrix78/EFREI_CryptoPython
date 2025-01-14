@@ -34,6 +34,10 @@ def exo5():
 @app.route('/maison')
 def exo6():
      return render_template('maison.html')
+
+@app.route('/jack')
+def exo7():
+     return render_template('jack.html')
     
 @app.route('/encrypt/<string:valeur>')
 def encryptage(valeur):
