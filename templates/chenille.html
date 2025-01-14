@@ -6,20 +6,18 @@
     <title>La Chenille</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #ffffff;
+            background-color: white;
         }
 
         .chenille {
             display: flex;
-            align-items: center;
             flex-wrap: wrap;
+            align-items: center;
         }
 
         .segment {
@@ -32,13 +30,12 @@
 
         .head {
             background-color: cyan;
-            position: relative;
         }
 
         .eye {
             position: absolute;
-            width: 20px;
-            height: 20px;
+            width: 15px;
+            height: 15px;
             background-color: white;
             border-radius: 50%;
             top: 30px;
@@ -54,18 +51,18 @@
 
         .pupil {
             position: absolute;
-            width: 10px;
-            height: 10px;
+            width: 7px;
+            height: 7px;
             background-color: black;
             border-radius: 50%;
-            top: 5px;
-            left: 5px;
+            top: 4px;
+            left: 4px;
         }
 
         .mouth {
             position: absolute;
-            width: 50px;
-            height: 20px;
+            width: 40px;
+            height: 15px;
             background-color: pink;
             border-radius: 10px;
             bottom: 20px;
@@ -79,7 +76,7 @@
             height: 10px;
             background-color: black;
             border-radius: 50%;
-            top: -40px;
+            top: -30px;
         }
 
         .antenna.left {
@@ -106,16 +103,80 @@
             right: 24px;
         }
 
-        .body-segment {
-            display: inline-block;
+        .body {
+            display: flex;
         }
 
-        .colors {
+        .body .segment:nth-child(1) {
+            background-color: blue;
+        }
+
+        .body .segment:nth-child(2) {
             background-color: orange;
+        }
+
+        .body .segment:nth-child(3) {
             background-color: magenta;
+        }
+
+        .body .segment:nth-child(4) {
             background-color: lime;
+        }
+
+        .body .segment:nth-child(5) {
+            background-color: lightblue;
+        }
+
+        .body .segment:nth-child(6) {
+            background-color: peachpuff;
+        }
+
+        .body .segment:nth-child(7) {
+            background-color: lightgray;
+        }
+
+        .foot {
+            position: absolute;
+            bottom: -10px;
+            width: 20px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        .foot.left {
+            left: 20px;
+        }
+
+        .foot.right {
+            right: 20px;
         }
     </style>
 </head>
 <body>
-<div>
+    <div class="chenille">
+        <div class="segment head">
+            <div class="eye left">
+                <div class="pupil"></div>
+            </div>
+            <div class="eye right">
+                <div class="pupil"></div>
+            </div>
+            <div class="mouth"></div>
+            <div class="antenna-line left"></div>
+            <div class="antenna left"></div>
+            <div class="antenna-line right"></div>
+            <div class="antenna right"></div>
+        </div>
+        <div class="body">
+            <div class="segment"></div>
+            <div class="segment"></div>
+            <div class="segment"></div>
+            <div class="segment"></div>
+            <div class="segment"></div>
+            <div class="segment"></div>
+            <div class="segment"></div>
+        </div>
+    </div>
+</body>
+</html>
