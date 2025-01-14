@@ -16,7 +16,6 @@
 
         .chenille {
             display: flex;
-            flex-wrap: wrap;
             align-items: center;
         }
 
@@ -24,12 +23,15 @@
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            margin: 5px;
             position: relative;
+            margin-left: -15px;
+            z-index: 1;
         }
 
         .head {
             background-color: cyan;
+            z-index: 2;
+            margin-left: 0;
         }
 
         .eye {
@@ -103,38 +105,6 @@
             right: 24px;
         }
 
-        .body {
-            display: flex;
-        }
-
-        .body .segment:nth-child(1) {
-            background-color: blue;
-        }
-
-        .body .segment:nth-child(2) {
-            background-color: orange;
-        }
-
-        .body .segment:nth-child(3) {
-            background-color: magenta;
-        }
-
-        .body .segment:nth-child(4) {
-            background-color: lime;
-        }
-
-        .body .segment:nth-child(5) {
-            background-color: lightblue;
-        }
-
-        .body .segment:nth-child(6) {
-            background-color: peachpuff;
-        }
-
-        .body .segment:nth-child(7) {
-            background-color: lightgray;
-        }
-
         .foot {
             position: absolute;
             bottom: -10px;
@@ -150,6 +120,34 @@
 
         .foot.right {
             right: 20px;
+        }
+
+        .segment:nth-child(2) {
+            background-color: blue;
+        }
+
+        .segment:nth-child(3) {
+            background-color: orange;
+        }
+
+        .segment:nth-child(4) {
+            background-color: magenta;
+        }
+
+        .segment:nth-child(5) {
+            background-color: lime;
+        }
+
+        .segment:nth-child(6) {
+            background-color: lightblue;
+        }
+
+        .segment:nth-child(7) {
+            background-color: peachpuff;
+        }
+
+        .segment:nth-child(8) {
+            background-color: lightgray;
         }
     </style>
 </head>
@@ -168,15 +166,13 @@
             <div class="antenna-line right"></div>
             <div class="antenna right"></div>
         </div>
-        <div class="body">
-            <div class="segment"></div>
-            <div class="segment"></div>
-            <div class="segment"></div>
-            <div class="segment"></div>
-            <div class="segment"></div>
-            <div class="segment"></div>
-            <div class="segment"></div>
-        </div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
     </div>
 </body>
 </html>
