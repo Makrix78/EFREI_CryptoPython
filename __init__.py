@@ -30,8 +30,7 @@ def exo4():
 @app.route('/coucou')
 def exo4():
      return render_template('coucou.html')
-
-
+    
 @app.route('/encrypt/<string:valeur>')
 def encryptage(valeur):
     valeur_bytes = valeur.encode()  # Conversion str -> bytes
