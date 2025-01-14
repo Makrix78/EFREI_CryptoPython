@@ -38,6 +38,10 @@ def exo6():
 @app.route('/jack')
 def exo7():
      return render_template('jack.html')
+
+@app.route('/chenille')
+def exo8():
+     return render_template('chenille.html')
     
 @app.route('/encrypt/<string:valeur>')
 def encryptage(valeur):
