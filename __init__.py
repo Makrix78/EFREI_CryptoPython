@@ -46,6 +46,10 @@ def exo8():
 @app.route('/jeu_de_des')
 def exo9():
      return render_template('jeu_de_des.html')
+
+@app.route('/bibli')
+def exo10():
+     return render_template('bibli.html')
     
 @app.route('/encrypt/<string:valeur>')
 def encryptage(valeur):
