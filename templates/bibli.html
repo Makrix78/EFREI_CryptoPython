@@ -5,11 +5,11 @@ function affichage() {
     alert("Tout est OK !");
 }
 
-function cacher() {
+function cacherTexte() {
     document.getElementById('DuTexte').style.display = "none";
 }
 
-function presenter() {
+function presenterTexte() {
     document.getElementById('DuTexte').style.display = "block";
 }
 
@@ -22,7 +22,11 @@ function controler() {
 }
 
 function afficherImage() {
-    document.getElementById('monImage').style.display = "block";
+    if (document.getElementById('Control').checked) {
+        document.getElementById('monImage').style.display = "block";
+    } else {
+        alert("Veuillez cocher la case pour afficher l'image.");
+    }
 }
 
 function cacherImage() {
@@ -34,24 +38,30 @@ function cacherImage() {
 <h1>Mes outils</h1>
 <hr/>
 
+<!-- Section Boite de dialogue -->
 <h2>Boite de dialogue</h2>
 <button onclick="affichage()">Afficher</button>
 <hr/>
 
+<!-- Section Manipulation de texte -->
+<h2>Manipulation de texte</h2>
 <p id="DuTexte">Ma phrase de texte</p>
-<button onclick="presenter()">Présenter</button>
-<button onclick="cacher()">Cacher</button>
+<button onclick="presenterTexte()">Présenter le texte</button>
+<button onclick="cacherTexte()">Cacher le texte</button>
 <hr/>
 
+<!-- Section Bouton Option -->
+<h2>Bouton option</h2>
 <p>Option <input type="checkbox" id="Control"></p>
 <button onclick="controler()">Check</button>
 <hr/>
 
-<h2>Affichage d'une image</h2>
+<!-- Section Affichage d'une image -->
+<h2>Affichage conditionnel de l'image</h2>
 <button onclick="afficherImage()">Afficher l'image</button>
 <button onclick="cacherImage()">Cacher l'image</button>
 <br>
-<img id="monImage" src="https://media.licdn.com/dms/image/v2/C4E03AQEIA_qtVPBR8Q/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1661423535926?e=2147483647&v=beta&t=gpUme4PmdPWNmTDC1F6xUR9QCovzJvVhwxPeCG6WWww" alt="Exemple d'image" style="display: none; margin-top: 10px;">
+<img id="monImage" src="https://via.placeholder.com/150" alt="Exemple d'image" style="display: none; margin-top: 10px;">
 
 </body>
 </html>
