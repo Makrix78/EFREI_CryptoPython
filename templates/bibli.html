@@ -2,15 +2,24 @@
 <head>
 <script>
 function affichage() {
-    const checkbox = document.getElementById('imageCheckbox');
-    const image = document.getElementById('monImage');
+    // Gestion des cases et des images
+    const checkbox1 = document.getElementById('imageCheckbox1');
+    const image1 = document.getElementById('monImage1');
     
-    // Vérifie si la case est cochée
-    if (checkbox.checked) {
-        image.style.display = "block"; // Affiche l'image
-    } else {
-        alert("Veuillez cocher 'Image 1' pour afficher l'image."); // Message d'alerte
-        image.style.display = "none"; // Masque l'image si la case n'est pas cochée
+    const checkbox2 = document.getElementById('imageCheckbox2');
+    const image2 = document.getElementById('monImage2');
+    
+    const checkbox3 = document.getElementById('imageCheckbox3');
+    const image3 = document.getElementById('monImage3');
+    
+    // Affichage/mise à jour des images
+    image1.style.display = checkbox1.checked ? "block" : "none";
+    image2.style.display = checkbox2.checked ? "block" : "none";
+    image3.style.display = checkbox3.checked ? "block" : "none";
+    
+    // Vérification : Si aucune image n'est cochée, alerte l'utilisateur
+    if (!checkbox1.checked && !checkbox2.checked && !checkbox3.checked) {
+        alert("Veuillez cocher au moins une case pour afficher les images.");
     }
 }
 </script>
@@ -19,31 +28,45 @@ function affichage() {
 <h1>Mes outils</h1>
 <hr/>
 
-<!-- Case cochable pour sélectionner l'image -->
+<!-- Case cochable pour sélectionner les images -->
 <h2>Boîte de dialogue</h2>
 <p>
-    <input type="checkbox" id="imageCheckbox">
-    <label for="imageCheckbox">Image 1</label>
+    <input type="checkbox" id="imageCheckbox1">
+    <label for="imageCheckbox1">Image 1</label>
+</p>
+<p>
+    <input type="checkbox" id="imageCheckbox2">
+    <label for="imageCheckbox2">Image 2</label>
+</p>
+<p>
+    <input type="checkbox" id="imageCheckbox3">
+    <label for="imageCheckbox3">Image 3</label>
 </p>
 
-<!-- Bouton pour afficher l'image -->
+<!-- Bouton pour afficher les images -->
 <button onclick="affichage()">Afficher</button>
 
-<!-- Image associée -->
+<!-- Images associées -->
 <img 
-    id="monImage" 
+    id="monImage1" 
     src="https://media.licdn.com/dms/image/v2/C4E03AQEIA_qtVPBR8Q/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1661423535926?e=2147483647&v=beta&t=gpUme4PmdPWNmTDC1F6xUR9QCovzJvVhwxPeCG6WWww" 
-    alt="Image d'exemple" 
+    alt="Image 1" 
+    style="display: none; margin-top: 10px;"
+>
+
+<img 
+    id="monImage2" 
+    src="https://via.placeholder.com/200" 
+    alt="Image 2" 
+    style="display: none; margin-top: 10px;"
+>
+
+<img 
+    id="monImage3" 
+    src="https://via.placeholder.com/200/FF0000/FFFFFF" 
+    alt="Image 3" 
     style="display: none; margin-top: 10px;"
 >
 <hr/>
-
-<!-- Autres fonctionnalités -->
-<p id="DuTexte">Ma phrase de texte</p>
-<button onclick="document.getElementById('DuTexte').style.display='block'">Présenter</button>
-<button onclick="document.getElementById('DuTexte').style.display='none'">Cacher</button>
-<hr/>
-<p>Option<input type="checkbox" id="Control"></p>
-<button onclick="alert(document.getElementById('Control').checked ? 'Bouton option coché' : 'Bouton option NON coché')">Check</button>
 </body>
 </html>
