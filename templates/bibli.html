@@ -12,13 +12,17 @@ function affichage() {
     const checkbox3 = document.getElementById('imageCheckbox3');
     const image3 = document.getElementById('monImage3');
     
+    const checkbox4 = document.getElementById('imageCheckbox4');
+    const image4 = document.getElementById('monImage4');
+    
     // Affichage/mise à jour des images
     image1.style.display = checkbox1.checked ? "block" : "none";
     image2.style.display = checkbox2.checked ? "block" : "none";
     image3.style.display = checkbox3.checked ? "block" : "none";
+    image4.style.display = checkbox4.checked ? "block" : "none";
     
     // Vérification : Si aucune image n'est cochée, alerte l'utilisateur
-    if (!checkbox1.checked && !checkbox2.checked && !checkbox3.checked) {
+    if (!checkbox1.checked && !checkbox2.checked && !checkbox3.checked && !checkbox4.checked) {
         alert("Veuillez cocher au moins une case pour afficher les images.");
     }
 }
@@ -41,6 +45,10 @@ function affichage() {
 <p>
     <input type="checkbox" id="imageCheckbox3">
     <label for="imageCheckbox3">Image 3</label>
+</p>
+<p>
+    <input type="checkbox" id="imageCheckbox4">
+    <label for="imageCheckbox4">Image 4</label>
 </p>
 
 <!-- Bouton pour afficher les images -->
@@ -67,6 +75,14 @@ function affichage() {
    alt="Image 3" 
    style="display: none; margin-top: 10px;"
 >
+
+<img 
+   id="monImage4" 
+   src="{{ url_for('static', filename='images/Dindon2.png') }}" 
+   alt="Image 4" 
+   style="display: none; margin-top: 10px;"
+>
+
 <hr/>
 </body>
 </html>
