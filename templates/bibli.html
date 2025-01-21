@@ -2,45 +2,14 @@
 <head>
 <script>
 function affichage() {
-    // Afficher un message d'alerte
-    alert("Tout est OK !");
+    const checkbox = document.getElementById('imageCheckbox');
+    const image = document.getElementById('monImage');
     
-    // Ajouter dynamiquement une case cochable pour contrôler l'image
-    const container = document.getElementById('checkboxContainer');
-    if (!document.getElementById('imageCheckbox')) {
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.id = 'imageCheckbox';
-        checkbox.onclick = function() {
-            if (checkbox.checked) {
-                document.getElementById('monImage').style.display = 'block';
-            } else {
-                document.getElementById('monImage').style.display = 'none';
-            }
-        };
-
-        const label = document.createElement('label');
-        label.htmlFor = 'imageCheckbox';
-        label.innerText = " Afficher l'image";
-
-        container.appendChild(checkbox);
-        container.appendChild(label);
-    }
-}
-
-function cacher() {
-    document.getElementById('DuTexte').style.display = "none";
-}
-
-function presenter() {
-    document.getElementById('DuTexte').style.display = "block";
-}
-
-function controler() {
-    if (document.getElementById('Control').checked) {
-        alert("Bouton option coché");
+    // Vérifie si la case est cochée
+    if (checkbox.checked) {
+        image.style.display = "block"; // Affiche l'image
     } else {
-        alert("Bouton option NON coché");
+        image.style.display = "none"; // Masque l'image
     }
 }
 </script>
@@ -48,21 +17,25 @@ function controler() {
 <body>
 <h1>Mes outils</h1>
 <hr/>
-<h2>Boite de dialogue</h2>
-<button onclick="affichage()">Afficher</button>
+<h2>Boîte de dialogue</h2>
+<!-- Case cochable -->
+<p>
+    <input type="checkbox" id="imageCheckbox" onclick="affichage()">
+    <label for="imageCheckbox">Afficher l'image</label>
+</p>
+<!-- Image associée -->
+<img 
+    id="monImage" 
+    src="https://media.licdn.com/dms/image/v2/C4E03AQEIA_qtVPBR8Q/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1661423535926?e=2147483647&v=beta&t=gpUme4PmdPWNmTDC1F6xUR9QCovzJvVhwxPeCG6WWww" 
+    alt="Image d'exemple" 
+    style="display: none; margin-top: 10px;"
+>
 <hr/>
 <p id="DuTexte">Ma phrase de texte</p>
-<button onclick="presenter()">Présenter</button>
-<button onclick="cacher()">Cacher</button>
+<button onclick="document.getElementById('DuTexte').style.display='block'">Présenter</button>
+<button onclick="document.getElementById('DuTexte').style.display='none'">Cacher</button>
 <hr/>
 <p>Option<input type="checkbox" id="Control"></p>
-<button onclick="controler()">Check</button>
-<hr/>
-
-<div id="checkboxContainer"></div>
-
-<!-- Image ajoutée -->
-<img id="monImage" src="https://via.placeholder.com/150" alt="Exemple d'image" style="display: none; margin-top: 10px;">
-
+<button onclick="alert(document.getElementById('Control').checked ? 'Bouton option coché' : 'Bouton option NON coché')">Check</button>
 </body>
 </html>
