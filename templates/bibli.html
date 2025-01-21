@@ -2,14 +2,37 @@
 <head>
 <script>
 function affichage() {
+    // Afficher un message d'alerte
     alert("Tout est OK !");
+    
+    // Ajouter dynamiquement une case cochable pour contrôler l'image
+    const container = document.getElementById('checkboxContainer');
+    if (!document.getElementById('imageCheckbox')) {
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.id = 'imageCheckbox';
+        checkbox.onclick = function() {
+            if (checkbox.checked) {
+                document.getElementById('monImage').style.display = 'block';
+            } else {
+                document.getElementById('monImage').style.display = 'none';
+            }
+        };
+
+        const label = document.createElement('label');
+        label.htmlFor = 'imageCheckbox';
+        label.innerText = " Afficher l'image";
+
+        container.appendChild(checkbox);
+        container.appendChild(label);
+    }
 }
 
-function cacherTexte() {
+function cacher() {
     document.getElementById('DuTexte').style.display = "none";
 }
 
-function presenterTexte() {
+function presenter() {
     document.getElementById('DuTexte').style.display = "block";
 }
 
@@ -20,47 +43,25 @@ function controler() {
         alert("Bouton option NON coché");
     }
 }
-
-function afficherImage() {
-    if (document.getElementById('Control').checked) {
-        document.getElementById('monImage').style.display = "block";
-    } else {
-        alert("Veuillez cocher la case pour afficher l'image.");
-    }
-}
-
-function cacherImage() {
-    document.getElementById('monImage').style.display = "none";
-}
 </script>
 </head>
 <body>
 <h1>Mes outils</h1>
 <hr/>
-
-<!-- Section Boite de dialogue -->
 <h2>Boite de dialogue</h2>
 <button onclick="affichage()">Afficher</button>
 <hr/>
-
-<!-- Section Manipulation de texte -->
-<h2>Manipulation de texte</h2>
 <p id="DuTexte">Ma phrase de texte</p>
-<button onclick="presenterTexte()">Présenter le texte</button>
-<button onclick="cacherTexte()">Cacher le texte</button>
+<button onclick="presenter()">Présenter</button>
+<button onclick="cacher()">Cacher</button>
 <hr/>
-
-<!-- Section Bouton Option -->
-<h2>Bouton option</h2>
-<p>Option <input type="checkbox" id="Control"></p>
+<p>Option<input type="checkbox" id="Control"></p>
 <button onclick="controler()">Check</button>
 <hr/>
 
-<!-- Section Affichage d'une image -->
-<h2>Affichage conditionnel de l'image</h2>
-<button onclick="afficherImage()">Afficher l'image</button>
-<button onclick="cacherImage()">Cacher l'image</button>
-<br>
+<div id="checkboxContainer"></div>
+
+<!-- Image ajoutée -->
 <img id="monImage" src="https://via.placeholder.com/150" alt="Exemple d'image" style="display: none; margin-top: 10px;">
 
 </body>
