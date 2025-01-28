@@ -4,6 +4,7 @@
     <script>
         let balles = 0; // Nombre de balles placées
         let gains = 0; // Variable pour stocker les gains
+        let chambresRouges = []; // Liste des chambres rouges sélectionnées
 
         function lancer() {
             // Vérifier qu'au moins une balle a été placée
@@ -12,37 +13,26 @@
                 return;
             }
 
-            // Réinitialiser la couleur bleue précédente (si présente)
-            for (let i = 1; i <= 6; i++) {
-                document.getElementById(`Br${i}`).style.fill = "gray";
+            // Générer un numéro aléatoire entre 1 et 6 pour placer la chambre bleue
+            const chambreBleueIndex = Math.floor(Math.random() * 6) + 1;
+
+            // Remplacer une chambre rouge par une chambre bleue si elle existe
+            if (chambresRouges.length > 0) {
+                // Si la chambre bleue tombe sur une rouge, on la remplace par du bleu
+                const chambreBleue = document.getElementById(`Br${chambreBleueIndex}`);
+                if (chambreBleue.style.fill === "red") {
+                    chambreBleue.style.fill = "blue"; // Remplacer par bleu
+                }
             }
 
             // Générer un numéro aléatoire entre 1 et 6 pour tirer une chambre
             const chambreTiree = Math.floor(Math.random() * 6) + 1;
             alert(`Vous avez tiré sur la chambre numéro ${chambreTiree}`);
-            
-            // Remplacer une chambre rouge par une chambre bleue
-            let chambresRouges = [];
-            for (let i = 1; i <= 6; i++) {
-                const chambre = document.getElementById(`Br${i}`);
-                if (chambre.style.fill === "red") {
-                    chambresRouges.push(i); // Ajouter la chambre rouge à la liste
-                }
-            }
-
-            if (chambresRouges.length > 0) {
-                // Choisir une chambre rouge au hasard pour la remplacer par du bleu
-                const chambreBleueIndex = chambresRouges[Math.floor(Math.random() * chambresRouges.length)];
-                document.getElementById(`Br${chambreBleueIndex}`).style.fill = "blue"; // Remplacer par bleu
-            } else {
-                alert("Aucune chambre rouge à remplacer !");
-            }
 
             // Vérifier la couleur de la chambre tirée
             const chambreElement = document.getElementById(`Br${chambreTiree}`);
             const couleur = chambreElement.style.fill; // Utiliser style.fill pour accéder à la couleur
 
-            // Déterminer si le joueur a gagné ou perdu
             if (couleur === "blue") {
                 alert("Vous avez perdu ! La pastille bleue a été tirée sur une chambre rouge.");
                 balles = 0;
@@ -75,6 +65,9 @@
             // Changer la couleur de la chambre cliquée en rouge
             const chambre = document.getElementById(`Br${numero}`);
             chambre.style.fill = "red";
+            
+            // Ajouter cette chambre à la liste des chambres rouges sélectionnées
+            chambresRouges.push(numero);
             
             // Incrémenter le nombre de balles placées
             balles++;
