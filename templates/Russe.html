@@ -1,85 +1,125 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <script>
-        let balles = 0; // Nombre de balles placées
-        let gains = 0; // Variable pour stocker les gains
-        let chambresRouges = []; // Liste des chambres rouges sélectionnées
+<meta charset="UTF-8">
+<title>Roulette Russe (Chambre en Bleu)</title>
+<script>
+    let ballesRouges = 0;      // Nombre de balles (rouges) placées
+    let totalGains = 0;        // Gains cumulés
 
-        function lancer() {
-            // Vérifier qu'au moins une balle a été placée
-            if (balles === 0) {
-                alert("Vous devez placer au moins une balle dans le barillet !");
-                return;
-            }
+    // Fonction déclenchée quand on clique sur l’une des 6 chambres
+    function afficherChambre(numero) {
+        const chambre = document.getElementById(`Br${numero}`);
+        const couleur = chambre.getAttribute("fill");
 
-            // Générer un numéro aléatoire entre 1 et 6 pour tirer une chambre
-            const chambreTiree = Math.floor(Math.random() * 6) + 1;
-            alert(`Vous avez tiré sur la chambre numéro ${chambreTiree}`);
-
-            // Vérifier la couleur de la chambre tirée
-            const chambreElement = document.getElementById(`Br${chambreTiree}`);
-            const couleur = chambreElement.style.fill; // Utiliser style.fill pour accéder à la couleur
-
-            if (couleur === "blue") {
-                alert("Vous avez perdu ! La pastille bleue a été tirée sur une chambre rouge.");
-                balles = 0; // Réinitialisation des balles
-                gains = 0; // Réinitialisation des gains
-            } else if (couleur === "gray") {
-                // Calcul des gains en fonction du nombre de balles
-                let gain = 0;
-                if (balles === 1) {
-                    gain = 10000;
-                } else if (balles === 2) {
-                    gain = 100000;
-                } else if (balles === 3) {
-                    gain = 1000000;
-                }
-                gains += gain;
-                alert(`Vous avez gagné ${gain}€. Total des gains : ${gains}€`);
-            }
+        if (couleur === "red") {
+            alert(`La chambre ${numero} contient déjà une balle rouge.`);
+            return;
         }
 
-        function chambre(numero) {
-            // Si on a déjà sélectionné 3 balles, on ne peut pas en ajouter d'autres
-            if (balles >= 3) {
-                alert("Vous ne pouvez pas sélectionner plus de 3 chambres !");
-                return;
-            }
-
-            // Afficher le numéro de la chambre cliquée
-            alert(`Vous avez cliqué sur la chambre numéro ${numero}`);
-            
-            // Changer la couleur de la chambre cliquée en rouge
-            const chambre = document.getElementById(`Br${numero}`);
-            chambre.style.fill = "red";
-            
-            // Ajouter cette chambre à la liste des chambres rouges sélectionnées
-            chambresRouges.push(numero);
-            
-            // En même temps que la chambre est rouge, on la remplace par bleu si elle a été sélectionnée
-            const chambreBleueIndex = chambresRouges[Math.floor(Math.random() * chambresRouges.length)];
-            document.getElementById(`Br${chambreBleueIndex}`).style.fill = "blue"; // Remplacer par bleu
-            
-            // Incrémenter le nombre de balles placées
-            balles++;
+        if (ballesRouges < 3) {
+            chambre.setAttribute("fill", "red");
+            ballesRouges++;
+            alert(`Balle placée dans la chambre ${numero}.`);
+        } else {
+            alert("Vous ne pouvez placer que 3 balles maximum.");
         }
-    </script>
+    }
+
+    // Fonction principale déclenchée par le bouton "Jouer"
+    function lancer() {
+        // On vérifie d'abord qu'au moins une balle rouge a été placée
+        if (ballesRouges === 0) {
+            alert("Vous devez placer au moins une balle avant de jouer !");
+            return;
+        }
+
+        // Tirage d'une chambre aléatoirement (1 à 6)
+        const numeroChambre = Math.floor(Math.random() * 6) + 1;
+        const chambreElement = document.getElementById(`Br${numeroChambre}`);
+
+        // Récupération de la couleur actuelle
+        const couleurActuelle = chambreElement.getAttribute("fill");
+
+        // Si la chambre choisie est rouge => Perdu
+        if (couleurActuelle === "red") {
+            // On peut jouer un son (si disponible)
+            const audio = new Audio('/static/sound/gun.mp3');
+            audio.play();
+
+            setTimeout(() => {
+                alert("BOUM ! Perdu : la chambre était rouge !");
+            }, 300);
+
+            // Remise à zéro des gains
+            totalGains = 0;
+        } 
+        // Sinon, la chambre est grise => on la passe en bleu (gagné)
+        else {
+            chambreElement.setAttribute("fill", "blue");
+
+            // Calcul du gain
+            let gain = 0;
+            if (ballesRouges === 1) gain = 10000;
+            else if (ballesRouges === 2) gain = 100000;
+            else if (ballesRouges === 3) gain = 1000000;
+
+            totalGains += gain;
+            alert(`Bravo ! Vous gagnez ${gain.toLocaleString("fr-FR")} €.`);
+        }
+
+        // Affiche les gains totaux
+        alert(`Gains totaux : ${totalGains.toLocaleString("fr-FR")} €.`);
+
+        // Réinitialise pour la partie suivante
+        resetBarillet();
+    }
+
+    // Réinitialise le barillet (toutes les chambres en gris)
+    function resetBarillet() {
+        ballesRouges = 0;
+        for (let i = 1; i <= 6; i++) {
+            const chambre = document.getElementById(`Br${i}`);
+            chambre.setAttribute("fill", "gray");
+        }
+    }
+</script>
 </head>
 <body>
-    <h1>Roulette Russe</h1>
+    <h1>Roulette Russe (Chambre en Bleu)</h1>
 
-    <svg width="200" height="200" style="background-color: antiquewhite;">
-        <circle cx="100" cy="100" r="95" stroke="black" stroke-width="3" fill="none"></circle>
-        <circle id="Br1" cx="100" cy="40" r="25" stroke="black" stroke-width="3" fill="gray" onclick="chambre(1)"></circle>
-        <circle id="Br2" cx="150" cy="70" r="25" stroke="black" stroke-width="3" fill="gray" onclick="chambre(2)"></circle>
-        <circle id="Br3" cx="50" cy="70" r="25" stroke="black" stroke-width="3" fill="gray" onclick="chambre(3)"></circle>
-        <circle id="Br4" cx="50" cy="130" r="25" stroke="black" stroke-width="3" fill="gray" onclick="chambre(4)"></circle>
-        <circle id="Br5" cx="150" cy="130" r="25" stroke="black" stroke-width="3" fill="gray" onclick="chambre(5)"></circle>
-        <circle id="Br6" cx="100" cy="160" r="25" stroke="black" stroke-width="3" fill="gray" onclick="chambre(6)"></circle>
-        <circle cx="100" cy="100" r="10" stroke="black" stroke-width="3" fill="black"></circle>
+    <svg width="200" height="200" style="background-color:antiquewhite">
+        <!-- Grand cercle du barillet -->
+        <circle cx="100" cy="100" r="95" stroke="black" stroke-width="3" fill="none" />
+
+        <!-- 6 chambres (cercles cliquables) -->
+        <circle id="Br1" cx="100" cy="40"  r="25" stroke="black" stroke-width="3" fill="gray" onclick="afficherChambre(1)" />
+        <circle id="Br2" cx="150" cy="70"  r="25" stroke="black" stroke-width="3" fill="gray" onclick="afficherChambre(2)" />
+        <circle id="Br3" cx="50"  cy="70"  r="25" stroke="black" stroke-width="3" fill="gray" onclick="afficherChambre(3)" />
+        <circle id="Br4" cx="50"  cy="130" r="25" stroke="black" stroke-width="3" fill="gray" onclick="afficherChambre(4)" />
+        <circle id="Br5" cx="150" cy="130" r="25" stroke="black" stroke-width="3" fill="gray" onclick="afficherChambre(5)" />
+        <circle id="Br6" cx="100" cy="160" r="25" stroke="black" stroke-width="3" fill="gray" onclick="afficherChambre(6)" />
+
+        <!-- Pivot central -->
+        <circle cx="100" cy="100" r="10" stroke="black" stroke-width="3" fill="black" />
     </svg>
 
     <button onclick="lancer()">Jouer</button>
+
+    <h3>Règles :</h3>
+    <p>
+        - Cliquez sur les chambres grises pour y placer jusqu’à 3 balles rouges.<br>
+        - Cliquez ensuite sur "Jouer".<br>
+        - Si la chambre choisie aléatoirement est rouge, vous perdez (BOUM).<br>
+        - Si elle est grise, elle devient bleue et vous gagnez un montant selon le nombre de balles placées.
+    </p>
+    <ul>
+        <li>1 balle : 10 000 €</li>
+        <li>2 balles : 100 000 €</li>
+        <li>3 balles : 1 000 000 €</li>
+    </ul>
+
+    <audio id="gunshot-sound" src="/static/sound/gun.mp3"></audio>
 </body>
 </html>
