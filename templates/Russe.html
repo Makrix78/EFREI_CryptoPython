@@ -3,7 +3,7 @@
 <head>
     <script>
         function lancer() {
-            const numaleatoire = Math.floor(Math.random() * 6) + 1;
+            const numeroAleatoire = Math.floor(Math.random() * 6) + 1;
             const chambreElement = document.getElementById("Br" + numeroAleatoire);
             if (chambreElement.style.fill === "red") {
                 alert("Le barillet tourne... Chambre " + numeroAleatoire + " : Perdu !");
