@@ -13,27 +13,14 @@
                 return;
             }
 
-            // Réinitialiser la couleur bleue précédente (si présente)
-            for (let i = 1; i <= 6; i++) {
-                document.getElementById(`Br${i}`).style.fill = "gray";
-            }
-
             // Générer un numéro aléatoire entre 1 et 6 pour tirer une chambre
             const chambreTiree = Math.floor(Math.random() * 6) + 1;
             alert(`Vous avez tiré sur la chambre numéro ${chambreTiree}`);
-
-            // Remplacer une chambre rouge par une chambre bleue si elle existe
-            if (chambresRouges.length > 0) {
-                // Choisir une chambre rouge au hasard pour la remplacer par du bleu
-                const chambreBleueIndex = chambresRouges[Math.floor(Math.random() * chambresRouges.length)];
-                document.getElementById(`Br${chambreBleueIndex}`).style.fill = "blue"; // Remplacer par bleu
-            }
 
             // Vérifier la couleur de la chambre tirée
             const chambreElement = document.getElementById(`Br${chambreTiree}`);
             const couleur = chambreElement.style.fill; // Utiliser style.fill pour accéder à la couleur
 
-            // Si la pastille bleue est tirée, vérifier si elle est sur une chambre rouge
             if (couleur === "blue") {
                 alert("Vous avez perdu ! La pastille bleue a été tirée sur une chambre rouge.");
                 balles = 0; // Réinitialisation des balles
@@ -69,6 +56,10 @@
             
             // Ajouter cette chambre à la liste des chambres rouges sélectionnées
             chambresRouges.push(numero);
+            
+            // En même temps que la chambre est rouge, on la remplace par bleu si elle a été sélectionnée
+            const chambreBleueIndex = chambresRouges[Math.floor(Math.random() * chambresRouges.length)];
+            document.getElementById(`Br${chambreBleueIndex}`).style.fill = "blue"; // Remplacer par bleu
             
             // Incrémenter le nombre de balles placées
             balles++;
