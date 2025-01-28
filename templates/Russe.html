@@ -13,11 +13,20 @@
             }
 
             // Générer un numéro aléatoire entre 1 et 6 pour tirer une chambre
-            const chambre = Math.floor(Math.random() * 6) + 1;
-            alert(`Vous avez tiré sur la chambre numéro ${chambre}`);
+            const chambreTiree = Math.floor(Math.random() * 6) + 1;
+            alert(`Vous avez tiré sur la chambre numéro ${chambreTiree}`);
             
-            // Vérifier la couleur de la chambre
-            const chambreElement = document.getElementById(`Br${chambre}`);
+            // Réinitialiser la couleur bleue précédente (si présente)
+            for (let i = 1; i <= 6; i++) {
+                document.getElementById(`Br${i}`).style.fill = "gray";
+            }
+
+            // Choisir une chambre au hasard pour devenir bleue
+            const chambreBleue = Math.floor(Math.random() * 6) + 1;
+            document.getElementById(`Br${chambreBleue}`).style.fill = "blue"; // La chambre devient bleue
+
+            // Vérifier la couleur de la chambre tirée
+            const chambreElement = document.getElementById(`Br${chambreTiree}`);
             const couleur = chambreElement.style.fill; // Utiliser style.fill pour accéder à la couleur
 
             if (couleur === "red") {
