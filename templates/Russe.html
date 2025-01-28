@@ -12,18 +12,26 @@
                 return;
             }
 
-            // Réinitialiser la couleur bleue précédente (si présente)
-            for (let i = 1; i <= 6; i++) {
-                document.getElementById(`Br${i}`).style.fill = "gray";
-            }
-
             // Générer un numéro aléatoire entre 1 et 6 pour tirer une chambre
             const chambreTiree = Math.floor(Math.random() * 6) + 1;
             alert(`Vous avez tiré sur la chambre numéro ${chambreTiree}`);
             
-            // Choisir une chambre au hasard pour devenir bleue
-            const chambreBleue = Math.floor(Math.random() * 6) + 1;
-            document.getElementById(`Br${chambreBleue}`).style.fill = "blue"; // La chambre devient bleue
+            // Remplacer une chambre rouge par une chambre bleue
+            let chambresRouges = [];
+            for (let i = 1; i <= 6; i++) {
+                const chambre = document.getElementById(`Br${i}`);
+                if (chambre.style.fill === "red") {
+                    chambresRouges.push(i); // Ajouter la chambre rouge à la liste
+                }
+            }
+
+            if (chambresRouges.length > 0) {
+                // Choisir une chambre rouge au hasard pour la remplacer par du bleu
+                const chambreBleueIndex = chambresRouges[Math.floor(Math.random() * chambresRouges.length)];
+                document.getElementById(`Br${chambreBleueIndex}`).style.fill = "blue"; // Remplacer par bleu
+            } else {
+                alert("Aucune chambre rouge à remplacer !");
+            }
 
             // Vérifier la couleur de la chambre tirée
             const chambreElement = document.getElementById(`Br${chambreTiree}`);
