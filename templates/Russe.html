@@ -4,8 +4,6 @@
     <script>
         function lancer() {
             const numaleatoire = Math.floor(Math.random() * 6) + 1;
-            alert("Le barillet tourne... Chambre : " + numaleatoire);y
-             // Vérifier la couleur de la chambre correspondante
             const chambreElement = document.getElementById("Br" + numeroAleatoire);
             if (chambreElement.style.fill === "red") {
                 alert("Le barillet tourne... Chambre " + numeroAleatoire + " : Perdu !");
