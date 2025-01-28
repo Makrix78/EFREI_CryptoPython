@@ -50,6 +50,10 @@ def exo9():
 @app.route('/bibli')
 def exo10():
      return render_template('bibli.html')
+
+@app.route('/russe')
+def exo11():
+     return render_template('russe.html')
     
 @app.route('/encrypt/<string:valeur>')
 def encryptage(valeur):
