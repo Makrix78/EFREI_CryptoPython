@@ -2,8 +2,17 @@
 <html>
 <head>
     <script>
+        let balles = 0; // Nombre de balles placées
+        let gains = 0; // Variable pour stocker les gains
+
         function lancer() {
-            // Générer un numéro aléatoire entre 1 et 6
+            // Vérifier qu'au moins une balle a été placée
+            if (balles === 0) {
+                alert("Vous devez placer au moins une balle dans le barillet !");
+                return;
+            }
+
+            // Générer un numéro aléatoire entre 1 et 6 pour tirer une chambre
             const chambre = Math.floor(Math.random() * 6) + 1;
             alert(`Vous avez tiré sur la chambre numéro ${chambre}`);
             
@@ -12,21 +21,42 @@
             const couleur = chambreElement.style.fill; // Utiliser style.fill pour accéder à la couleur
 
             if (couleur === "red") {
-                setTimeout(() => {
-                    alert("Vous avez perdu");
-                }, 500);
+                // Perdu si la chambre tirée est rouge
+                alert("Vous avez perdu !");
+                // Réinitialisation des balles et gains
+                balles = 0;
+                gains = 0;
             } else {
-                alert("Vous avez gagné");
+                // Calcul des gains en fonction du nombre de balles
+                let gain = 0;
+                if (balles === 1) {
+                    gain = 10000;
+                } else if (balles === 2) {
+                    gain = 100000;
+                } else if (balles === 3) {
+                    gain = 1000000;
+                }
+                gains += gain;
+                alert(`Vous avez gagné ${gain}€. Total des gains : ${gains}€`);
             }
         }
 
         function chambre(numero) {
+            // Si on a déjà sélectionné 3 balles, on ne peut pas en ajouter d'autres
+            if (balles >= 3) {
+                alert("Vous ne pouvez pas sélectionner plus de 3 chambres !");
+                return;
+            }
+
             // Afficher le numéro de la chambre cliquée
             alert(`Vous avez cliqué sur la chambre numéro ${numero}`);
             
             // Changer la couleur de la chambre cliquée en rouge
             const chambre = document.getElementById(`Br${numero}`);
             chambre.style.fill = "red";
+            
+            // Incrémenter le nombre de balles placées
+            balles++;
         }
     </script>
 </head>
