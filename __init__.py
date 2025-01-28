@@ -53,7 +53,7 @@ def exo10():
 
 @app.route('/russe')
 def exo11():
-     return render_template('russe.html')
+     return render_template('Russe.html')
     
 @app.route('/encrypt/<string:valeur>')
 def encryptage(valeur):
